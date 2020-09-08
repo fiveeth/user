@@ -20,3 +20,8 @@ spring:
       discovery:
         # 指定nacos server的地址
         server-addr: localhost:8848
+        cluster-name: GZ
+        metadata:
+          version: v1 #自己这个实例的版本
+          target-version: v1 #允许调用的提供者版本（白话文：v1版本的内容中心允许调用哪个版本的用户中心）
+        #namespace: 8c078bf1-4864-4413-b300-de6b605635a6
