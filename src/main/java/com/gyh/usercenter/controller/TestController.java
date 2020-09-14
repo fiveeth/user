@@ -2,10 +2,9 @@ package com.gyh.usercenter.controller;
 
 import com.gyh.usercenter.domain.entity.user.User;
 import com.gyh.usercenter.mapper.user.UserMapper;
+import lombok.val;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;
@@ -21,7 +20,7 @@ public class TestController {
     private UserMapper userMapper;
 
     @GetMapping("/test")
-    public List<User> getUser(){
+    public List<User> getUser() {
         User user = User.builder()
                 .createTime(new Date())
                 .updateTime(new Date())
@@ -31,5 +30,15 @@ public class TestController {
         userMapper.insertSelective(user);
         List<User> users = userMapper.selectAll();
         return users;
+    }
+
+    @GetMapping("/testGet")
+    public User query(User user) {
+        return userMapper.selectOne(user);
+    }
+
+    @PostMapping("/testPost")
+    public User queryPost(@RequestBody User user) {
+        return userMapper.selectOne(user);
     }
 }
