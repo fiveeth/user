@@ -11,6 +11,9 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.Date;
 
+/**
+ * @author cncoder
+ */
 @Data
 @Builder
 @AllArgsConstructor
